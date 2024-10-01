@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 public class InputManager : MonoBehaviour
 {
     public static InputManager Main;
-    private UserInput _userInput = new();
+    private UserInput _userInput;
 
     private Vector3 _moveDirection;
     public Vector3 MoveDirection { get { return _moveDirection; } }
@@ -20,6 +20,8 @@ public class InputManager : MonoBehaviour
         }
 
         Main = this;
+        
+        _userInput = new UserInput();
     }
 
     private void OnEnable()
