@@ -30,10 +30,10 @@ public class BackgroundScroller : MonoBehaviour
 
             if (_activeObjects[i].transform.position.y <= _despawnPoint)
             {
-                ReturnObject(_activeObjects[i]);
                 Vector3 targetPosition = new Vector3(Random.Range(-1f, 1f),
                     _activeObjects[_activeObjects.Count - 1].transform.position.y + 7, 0);
                 MakeObject(targetPosition);
+                ReturnObject(_activeObjects[i]);
             }
         }
     }
