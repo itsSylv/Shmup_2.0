@@ -37,21 +37,20 @@ public class BackgroundScroller : MonoBehaviour
             }
         }
     }
-
+    
     private void MakeObject(Vector3 position)
     {
-        GameObject island = GetObject();
+        GameObject island = GetInactiveObject();
+        _inactiveObjects.Remove(island);
+        _activeObjects.Add(island);
         island.transform.position = position;
         island.SetActive(true);
     }
 
-    private GameObject GetObject()
+    private GameObject GetInactiveObject()
     {
         int randomIndex = Random.Range(0, _inactiveObjects.Count);
-        _activeObjects.Add(_inactiveObjects[randomIndex]);
-        _inactiveObjects.Remove(_inactiveObjects[randomIndex]);
-        
-        return _activeObjects[_activeObjects.Count - 1];
+        return _inactiveObjects[randomIndex];
     }
 
     private void ReturnObject(GameObject obj)
