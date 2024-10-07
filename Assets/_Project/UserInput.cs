@@ -53,6 +53,15 @@ public partial class @UserInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SpecialFire"",
+                    ""type"": ""Button"",
+                    ""id"": ""91bb6f26-49e4-4874-8985-07d396b1a4a9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -242,6 +251,28 @@ public partial class @UserInput: IInputActionCollection2, IDisposable
                     ""action"": ""Pausing"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""37555be2-7c4f-475a-bc80-0ab3b00ac912"",
+                    ""path"": ""<Keyboard>/z"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""SpecialFire"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b83a9f4f-1819-4c37-b37c-14c548fc9a61"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""SpecialFire"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -276,6 +307,7 @@ public partial class @UserInput: IInputActionCollection2, IDisposable
         m_Game_Movement = m_Game.FindAction("Movement", throwIfNotFound: true);
         m_Game_Shooting = m_Game.FindAction("Shooting", throwIfNotFound: true);
         m_Game_Pausing = m_Game.FindAction("Pausing", throwIfNotFound: true);
+        m_Game_SpecialFire = m_Game.FindAction("SpecialFire", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -340,6 +372,7 @@ public partial class @UserInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_Game_Movement;
     private readonly InputAction m_Game_Shooting;
     private readonly InputAction m_Game_Pausing;
+    private readonly InputAction m_Game_SpecialFire;
     public struct GameActions
     {
         private @UserInput m_Wrapper;
@@ -347,6 +380,7 @@ public partial class @UserInput: IInputActionCollection2, IDisposable
         public InputAction @Movement => m_Wrapper.m_Game_Movement;
         public InputAction @Shooting => m_Wrapper.m_Game_Shooting;
         public InputAction @Pausing => m_Wrapper.m_Game_Pausing;
+        public InputAction @SpecialFire => m_Wrapper.m_Game_SpecialFire;
         public InputActionMap Get() { return m_Wrapper.m_Game; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -365,6 +399,9 @@ public partial class @UserInput: IInputActionCollection2, IDisposable
             @Pausing.started += instance.OnPausing;
             @Pausing.performed += instance.OnPausing;
             @Pausing.canceled += instance.OnPausing;
+            @SpecialFire.started += instance.OnSpecialFire;
+            @SpecialFire.performed += instance.OnSpecialFire;
+            @SpecialFire.canceled += instance.OnSpecialFire;
         }
 
         private void UnregisterCallbacks(IGameActions instance)
@@ -378,6 +415,9 @@ public partial class @UserInput: IInputActionCollection2, IDisposable
             @Pausing.started -= instance.OnPausing;
             @Pausing.performed -= instance.OnPausing;
             @Pausing.canceled -= instance.OnPausing;
+            @SpecialFire.started -= instance.OnSpecialFire;
+            @SpecialFire.performed -= instance.OnSpecialFire;
+            @SpecialFire.canceled -= instance.OnSpecialFire;
         }
 
         public void RemoveCallbacks(IGameActions instance)
@@ -418,5 +458,6 @@ public partial class @UserInput: IInputActionCollection2, IDisposable
         void OnMovement(InputAction.CallbackContext context);
         void OnShooting(InputAction.CallbackContext context);
         void OnPausing(InputAction.CallbackContext context);
+        void OnSpecialFire(InputAction.CallbackContext context);
     }
 }
