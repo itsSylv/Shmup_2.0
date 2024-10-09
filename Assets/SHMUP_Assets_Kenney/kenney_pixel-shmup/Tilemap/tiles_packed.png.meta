@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tiles_packed_0
+      name: Bullet
       rect:
         serializedVersion: 2
         x: 0
@@ -131,7 +131,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_packed_1
+      name: DoubleBullet
       rect:
         serializedVersion: 2
         x: 16
@@ -2514,8 +2514,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      tiles_packed_0: -907659511
-      tiles_packed_1: 607045158
+      Bullet: -907659511
+      DoubleBullet: 607045158
       tiles_packed_10: 427522868
       tiles_packed_100: -1373050911
       tiles_packed_101: -1259833373
