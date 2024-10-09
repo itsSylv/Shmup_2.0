@@ -19,7 +19,7 @@ public class Bullet : MonoBehaviour
         transform.position += transform.up * (_bulletSpeed * Time.deltaTime);
     }
 
-    public void SetDamage(int damage)
+    public void SetDamage(float damage)
     {
         _damage = damage;
     }
