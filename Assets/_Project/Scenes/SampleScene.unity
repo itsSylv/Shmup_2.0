@@ -251,6 +251,14 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: -2
       objectReference: {fileID: 0}
+    - target: {fileID: 6629132844313721214, guid: 4aae8892eee868744b8ed181ce6139e4, type: 3}
+      propertyPath: m_CellSize.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6629132844313721214, guid: 4aae8892eee868744b8ed181ce6139e4, type: 3}
+      propertyPath: m_CellSize.y
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7726677148256911610, guid: 4aae8892eee868744b8ed181ce6139e4, type: 3}
       propertyPath: m_IsActive
       value: 0
