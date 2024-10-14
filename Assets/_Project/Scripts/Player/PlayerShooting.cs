@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerShooting : MonoBehaviour
 {
-    [SerializeField] private float _damage;
+    [SerializeField] private int _damage;
     [SerializeField] private float _cooldown;
     [SerializeField] private GameObject _bullet;
     [SerializeField] private Transform _bulletSpawnPos;
