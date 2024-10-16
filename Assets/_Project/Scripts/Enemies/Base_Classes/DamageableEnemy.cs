@@ -27,9 +27,7 @@ public abstract class DamageableEnemy : Enemy, IDamageable
 
     private void TrySpawnPowerup()
     {
-        int randomNum = Random.Range(1, 100);
-
-        if (_powerupDropChance != 0 && randomNum <= _powerupDropChance)
+        if (_powerupDropChance > 0 && Random.Range(1, 100) <= _powerupDropChance)
         {
             // TODO: spawn powerup
         }

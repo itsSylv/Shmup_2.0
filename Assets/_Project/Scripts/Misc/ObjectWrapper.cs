@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Project.Utils;
 using UnityEngine;
 
 public class ObjectWrapper : MonoBehaviour
@@ -10,9 +11,8 @@ public class ObjectWrapper : MonoBehaviour
 
     private void Awake()
     {
-        float screenWidth = (Camera.main.orthographicSize * 2) * Camera.main.aspect;
         float spriteWidth = _spriteRenderer.bounds.size.x;
-        _loopWidth = (screenWidth + spriteWidth) / 2;
+        _loopWidth = Utils.GetHorizontalScreenBounds() + spriteWidth / 2;
     }
 
     private void Update()
