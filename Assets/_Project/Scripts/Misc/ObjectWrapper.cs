@@ -18,7 +18,7 @@ public class ObjectWrapper : MonoBehaviour
     private void Update()
     {
         float xPos = transform.position.x;
-        if (Utils.Pos(xPos) >= _loopWidth)
+        if (Mathf.Abs(xPos) >= _loopWidth)
         {
             float sign = Mathf.Sign(-transform.position.x);
             Vector3 newPos = new Vector3(_loopWidth * sign, transform.position.y, transform.position.z);

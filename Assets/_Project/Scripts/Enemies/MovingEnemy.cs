@@ -70,7 +70,7 @@ public class MovingEnemy : DamageableEnemy
                 break;
         }
 
-        if (Utils.Pos(transform.position.x) > _loopWidth)
+        if (Mathf.Abs(transform.position.x) > _loopWidth)
         {
             _direction = transform.position.x > 0 ? MoveDirection.Left : MoveDirection.Right;
         }
