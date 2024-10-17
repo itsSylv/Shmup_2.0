@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class DamageableEnemy : Enemy, IDamageable
 {
     [SerializeField] private int _hitPoints;
-    [Range(0, 100)]  private readonly int _powerupDropChance;
+    [SerializeField] [Range(0, 100)] private int _powerupDropChance;
 
     protected override void Setup()
     {

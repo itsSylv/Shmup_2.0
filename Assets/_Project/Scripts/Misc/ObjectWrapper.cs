@@ -18,21 +18,11 @@ public class ObjectWrapper : MonoBehaviour
     private void Update()
     {
         float xPos = transform.position.x;
-        if (Pos(xPos) >= _loopWidth)
+        if (Utils.Pos(xPos) >= _loopWidth)
         {
             float sign = Mathf.Sign(-transform.position.x);
             Vector3 newPos = new Vector3(_loopWidth * sign, transform.position.y, transform.position.z);
             transform.position = newPos;
         }
-    }
-
-    /// <summary>
-    /// Return the given number as a positive number
-    /// </summary>
-    /// <param name="x"></param>
-    /// <returns></returns>
-    private float Pos(float x)
-    {
-        return Mathf.Sqrt(x * x);
     }
 }
