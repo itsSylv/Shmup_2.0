@@ -10,6 +10,13 @@ public class MovingEnemy : DamageableEnemy
         Right
     }
 
+    private enum Behavior
+    {
+        Arriving,
+        Standard,
+        MoveTowardsPlayer
+    }
+
     [Header("Movement")]
     [SerializeField] private float _maxHeight;
     [SerializeField] private float _minHeight;
@@ -18,7 +25,7 @@ public class MovingEnemy : DamageableEnemy
     [SerializeField] private SpriteRenderer _sprite;
 
     private MoveDirection _direction;
-    private bool? _moveTowardsPlayer = null;
+    private Behavior _behavior;
     private float _loopWidth;
 
     protected override void Setup()
@@ -33,12 +40,14 @@ public class MovingEnemy : DamageableEnemy
         float spriteWidth = _sprite.bounds.size.x;
         _loopWidth = Utils.GetHorizontalScreenBounds() - spriteWidth / 2;
 
+        _behavior = Behavior.Arriving;
+
         StartCoroutine(ArrivalCoroutine());
     }
 
     private void Update()
     {
-        if (_moveTowardsPlayer == null)
+        if (_behavior == Behavior.Arriving)
         {
             return;
         }
@@ -47,7 +56,7 @@ public class MovingEnemy : DamageableEnemy
 
         // I really really dont feel like making a whole new variable to check whether the enemy is too low
         // Have a hardcoded value.
-        if (_moveTowardsPlayer == true && transform.position.y > -3.5)
+        if (_behavior == Behavior.MoveTowardsPlayer && transform.position.y > -3.5)
         {
             transform.position -= new Vector3(0, (_movementSpeed / 4) * Time.deltaTime);
         }
@@ -95,7 +104,7 @@ public class MovingEnemy : DamageableEnemy
             yield return null;
         }
 
-        _moveTowardsPlayer = Random.value < 0.5f;
+        _behavior = (Behavior)Random.Range(1, 3);
         _direction = (MoveDirection)Random.Range(0, 2);
     }
 }
