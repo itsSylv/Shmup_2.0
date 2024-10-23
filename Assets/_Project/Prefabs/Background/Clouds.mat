@@ -27,11 +27,11 @@ Material:
     m_Floats:
     - _BUILTIN_QueueControl: 0
     - _BUILTIN_QueueOffset: 0
-    - _CloudAlpha: 1.3
-    - _CloudPower: 0.73
-    - _CloudScale: 44.44
+    - _CloudAlpha: 0.35
+    - _CloudPower: 1
+    - _CloudScale: 82.9
     m_Colors:
-    - _CloudSpeed: {r: 0, g: 0.4, b: 0, a: 0}
+    - _CloudSpeed: {r: 0, g: 0.36, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &3841435348417391436
 MonoBehaviour:
