@@ -30,4 +30,6 @@ public class Weapon
     {
         _bullets = _projectileCount;
     }
+
+    public override string ToString() => $"(ProjCount: {_projectileCount}, Bullets: {_bullets}, Damage: {_damage})";
 }
