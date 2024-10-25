@@ -21,9 +21,13 @@ public class Weapon
     /// <returns></returns>
     public bool UseBullet()
     {
-        _bullets--;
+        if (_bullets > 0)
+        {
+            _bullets--;
+            return true;
+        }
 
-        return _bullets > -1;
+        return false;
     }
 
     public void Reload()
