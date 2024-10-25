@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 740071031951672791}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BulletSpawnPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5436105384551829558}
   - component: {fileID: 4521000020970610777}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ship_0023
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 2030293501709147973}
   - component: {fileID: 1201369142699347111}
   - component: {fileID: 5164091889578869337}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ShootingEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -163,12 +163,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edb6a0f6b0c68d84db5cfd4e0e7d31fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hitPoints: 10
-  _powerupDropChance: 0
   _maxHeight: 4
   _minHeight: 2.5
   _arrivalTimeSeconds: 2
   _sprite: {fileID: 4521000020970610777}
+  _hitPoints: 10
+  _powerupDropChance: 0
   _bulletSpawnPos: {fileID: 740071031951672791}
   _bulletPrefab: {fileID: 2010830994019264309, guid: 50435546b4d8f3a45a542e5071d02741, type: 3}
   _shootSpeed: 0.5
