@@ -27,9 +27,7 @@ public class MovingEnemy : DamageableEnemy
     {
         HandleMovement();
 
-        // I really really dont feel like making a whole new variable to check whether the enemy is too low
-        // Have a hardcoded value.
-        if (_moveTowardsPlayer && transform.position.y > -3.5)
+        if (_moveTowardsPlayer && transform.position.y > Player.transform.position.y)
         {
             transform.position -= new Vector3(0, (_movementSpeed / 4) * Time.deltaTime);
         }

@@ -13,10 +13,16 @@ public abstract class Enemy : MonoBehaviour
 
     protected Rigidbody2D rb;
     protected float LoopWidth;
+    protected GameObject Player;
 
     private void Awake()
     {
         Setup();
+    }
+
+    protected virtual void Start()
+    {
+        Player = GameManager.Main.Player;
     }
     
     protected virtual void Setup()

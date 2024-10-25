@@ -20,14 +20,18 @@ public class ShootingEnemy : DamageableEnemy
         base.Setup();
 
         _weapon = new Weapon(3, 1);
-        _shootAtPlayer = false;
-        //_shootAtPlayer = Random.value < 0.5f;
+        _shootAtPlayer = Random.value < 0.5f;
         _shootTimer = 0;
     }
 
     protected override void Behavior()
     {
         _shootTimer -= Time.deltaTime;
+
+        if (_shootAtPlayer)
+        {
+            transform.up = Player.transform.position - transform.position;
+        }
 
         if (_shootTimer <= 0)
         {
@@ -39,11 +43,6 @@ public class ShootingEnemy : DamageableEnemy
 
     private void Shoot()
     {
-        if (_weapon == null)
-        {
-            return;
-        }
-
         if(_weapon.UseBullet())
         {
             Instantiate(_bulletPrefab, _bulletSpawnPos.position, _bulletSpawnPos.rotation, null);
